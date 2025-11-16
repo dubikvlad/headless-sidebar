@@ -1,4 +1,4 @@
-// MenuContext.tsx
+// выносим контекст в отдельный модуль для удобства
 import { createContext } from "react";
 
 export interface MenuContextShape {

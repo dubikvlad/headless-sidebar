@@ -1,4 +1,4 @@
-// выносим функцию в отдельный модуль для удобства
+// выносим хук useMenu в отдельный модуль для удобства
 
 import { useContext } from "react";
 import { MenuContext } from "./MenuContext";

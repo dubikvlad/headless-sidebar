@@ -1,73 +1,33 @@
-# React + TypeScript + Vite
+# Headless Sidebar
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+React компонент бокового меню без стилей с TypeScript и адаптивностью.
 
-Currently, two official plugins are available:
+## 🚀 Демо
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+[https://dubikvlad.github.io/headless-sidebar/](https://dubikvlad.github.io/headless-sidebar/)
 
-## React Compiler
+## 📦 Установка и запуск
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+```bash
+# Установка зависимостей
+npm install
 
-## Expanding the ESLint configuration
+# Запуск в development режиме
+npm run dev
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+# Сборка для production
+npm run build
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+# Деплой на GitHub Pages
+npm run deploy
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## Требования
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+1. Использовать React, TypeScript, Tailwind
+2. Логика работы соответствует видео и макетам
+3. ⚠️ Меню должно быть написано с использованием JSX-нотации, то есть полностью компонентный подход, JSON/JS-like конфигурационные объекты не подойдут
+4. Удобный компонентный API при котором интегрировать такое меню с внешним стейтом (роутер, localStorage, useState & etc.) не вызовет сложностей
+5. Headless UI реализация – ваш компонент должен обеспечивать только логику работы, а внешний вид и стилизация должны находиться в компоненте-потребителе, который кроме стилей ничего больше не добавляет
+6. Продемонстрировать гибкость выбранного подхода на примере интеграции меню с React Router в отдельном компоненте-обертке, который скроет всю сложность интеграции в себе и будет происходить просачивание логики в бизнес слой приложения, при этом React Router не может быть использован внутри вашего headless меню напрямую – вся логика роутинга должна находиться только в компоненте-обертке
+7. Оставить полезные комменты в коде
+8. Реализовать мобильный вариант – при изменении размеров вью-порта, меню адаптирует свою работу под мобильные устройства, это должен быть один компонент, а не два разных, которые подменяются в зависимости от размера экрана

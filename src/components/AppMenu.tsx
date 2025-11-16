@@ -106,8 +106,6 @@ function AppMenuGroup({ path, icon: Icon, label, children }: GroupProps) {
   const isOpen = Boolean(openGroups[path]);
   const isActive = activePath.startsWith(path);
 
-  console.log("isOpen", isOpen);
-
   // Обработчик закрытия группы при клике вне элемента
   const handleCloseGroup = () => {
     // Если группа открыта и ширина экрана меньше 768px, то закрываем группу
